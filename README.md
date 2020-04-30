@@ -1,7 +1,6 @@
 # WeatherInfoGUI
-This new version of WeatherInfo(https://github.com/h4cktivist/WeatherInfo), but with Graphical User Interface.
 
-This program can give you detailed information about weather in your city. Enjoy!
+This program can give you detailed information about weather in your city. Just enter your city name and enjoy!
 
 P.S modules PyOWM and Python-tk must be installed
 
