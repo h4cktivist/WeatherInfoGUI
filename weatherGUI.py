@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import messagebox
 import pyowm
 
 owm = pyowm.OWM('5b307cb345d3bef73b070c9b38e5ca4a')
