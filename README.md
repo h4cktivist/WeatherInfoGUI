@@ -4,4 +4,4 @@ This program can give you detailed information about weather in your city. Just 
 
 P.S modules PyOWM and Python-tk must be installed
 
-![GUI](https://user-images.githubusercontent.com/51692800/77842774-30827a80-71b8-11ea-8b99-839385d43a91.png)
+![GUI](https://user-images.githubusercontent.com/51692800/96847609-d5261b80-146c-11eb-9fa0-30963fbe83a4.png)
