@@ -10,36 +10,30 @@ root.geometry("350x300")
 
 def Weather():
 	place = message.get()
-	observation = owm.weather_at_place(place)
-	w = observation.get_weather()
-	temp = w.get_temperature('celsius')["temp"]
-	wind = w.get_wind()["speed"]
+	mgr = owm.weather_manager()
+	observation = mgr.weather_at_place(place)
+	w = observation.weather
+	temp = w.temperature('celsius')["temp"]
+	wind = w.wind()["speed"]
+	humidity = w.humidity
+	clouds = w.clouds
 
-	labelinfo1 = Label(text="Current Weather in ", fg="#0000CD")
-	labelinfo1.pack()
-	placelabel = Label(text=place, fg="#0000CD")
-	placelabel.place(x=240, y=96)
+	weather_in_label = "Current Weather in " + place
+	status_label = "Status:  " + w.detailed_status
+	temp_label = "Temperature:  " + str(temp) + " ℃"
+	wind_label = "Wind:  " + str(wind) + " m/s"
+	humidity_label = "Humidity:  " + str(humidity) + " %"
+	clouds_label = "Clouds  " + str(clouds) + " %"
 
-	labelinfo2 = Label(text=w.get_detailed_status(), fg="#FF0000")
-	labelinfo2.pack()
-	labelinfo3 = Label(text=float(temp), fg="#FF0000")
-	labelinfo3.pack()
-	labelinfo4 = Label(text=wind, fg="#FF0000")
-	labelinfo4.pack()
-
-	laleltext1 = Label(text="Temperature (℃):", fg="#FF0000")
-	laleltext1.place(x=10, y=138)
-	laleltext2 = Label(text="Wind (m/s):", fg="#FF0000")
-	laleltext2.place(x=10, y=160)
-	laleltext3 = Label(text="Status: ", fg="#FF0000")
-	laleltext3.place(x=10, y=120)
+	Label(text=weather_in_label, fg="#0000CD").pack()
+	Label(text=status_label, fg="#FF0000").pack()
+	Label(text=temp_label, fg="#FF0000").pack()
+	Label(text=wind_label, fg="#FF0000").pack()
+	Label(text=humidity_label, fg="#FF0000").pack()
+	Label(text=clouds_label, fg="#FF0000").pack()
 
 
-
-label1 = Label(text="Weather Info Pro", fg="#0000CD")
-label1.pack()
-label2 = Label(text="Enter your city name", fg="#0000CD")
-label2.pack()
+Label(text="Enter your city name", fg="#0000CD").pack()
 
 message = StringVar()
 
@@ -48,6 +42,7 @@ message_entry.pack()
 
 message_button = Button(text="Show Weather", command=Weather)
 message_button.pack()
+Label(text=" ").pack()
 
 root.mainloop()
 
